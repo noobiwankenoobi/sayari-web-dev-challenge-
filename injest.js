@@ -109,7 +109,7 @@ How to assess and communicate risks
 
 
 
-// ARRAYS
+// ARRAYS TO BE PUSHED TO DB
 let questions = []
 let users = []
 let questionComments = []
@@ -117,8 +117,11 @@ let answers = []
 let answerComments = []
 
 
+///////////////////////////////////////////////////
+// INGESTING QUESTIONS DATA
+/////////////////////////////////////////////
 
-const ingestQuestion = (entireQuestion) => {
+function ingestQuestion(entireQuestion) {
   // logs for debug
   console.log("ingest question ran")
   console.log(entireQuestion)
@@ -146,7 +149,7 @@ const ingestQuestion = (entireQuestion) => {
 
 }
 
-const ingestQuestions = (rawData) => {
+function ingestQuestions(rawData) {
   // for question in questions {
     //inguestQuestion(question)
   //}
@@ -156,6 +159,9 @@ const ingestQuestions = (rawData) => {
     )
 }
 
+///////////////////////////////////////////////////
+// INGESTING QUESTIONS-COMMENTS DATA
+/////////////////////////////////////////////
 
 
 // const ingestQuestionComments = (questionId, questionCommentsArray) => {
@@ -173,7 +179,9 @@ const ingestQuestions = (rawData) => {
 
 // }
 
-// // INGEST USERS
+///////////////////////////////////////////////////
+// INGESTING USERS DATA
+/////////////////////////////////////////////
 
 // make a users MAP, key is the id, value is the username
 
@@ -182,6 +190,14 @@ const ingestQuestions = (rawData) => {
 //   // whenever it's called, you check whether the user id is already in the map of user ids you've added, if it is then do nothing
 //   // puts in the array, conditions it first if necessary
 // }
+
+///////////////////////////////////////////////////
+// INGESTING ANSWERS DATA
+/////////////////////////////////////////////
+
+///////////////////////////////////////////////////
+// INGESTING ANSWERS-COMMENTS DATA
+/////////////////////////////////////////////
 
 // // GET QUESTION COMMENTS
 // const getQuestionComments = () => {
