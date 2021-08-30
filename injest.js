@@ -118,20 +118,23 @@ let answerComments = []
 
 // make a users MAP, key is the id, value is the username
 
+const ingestQuestion = (entireQuestion) => {
+  console.log("ingest question ran")
+  console.log(entireQuestion)
+  // extract question object, dump to array
+  // extract user object, call ingestUser
+  // extract comment array, call ingest comments  ingestQuestionComments(userId, commentsArray)
+}
 
-const ingestQuestions = () => {
+const ingestQuestions = (rawDataObject) => {
   // for question in questions {
     //inguestQuestion(question)
   //}
   // iterate over the array, call ingestQuestion on each
+  forEach((question) => ingestQuestion(question) )
 }
 
-const ingestQuestion = (fullQuestion) => {
-  // extract question object, dump to array
-  // extract user object, call ingestUser
-  // extract comment array, call ingest comments  ingestQuestionComments(userId, commentsArray)
 
-}
 
 const ingestQuestionComments = (questionId, questionCommentsArray) => {
   // iterate over the array, call ingestQuestionComment
@@ -162,3 +165,4 @@ const getQuestionComments = () => {
 
 // filter redundant users
 
+ingestQuestions()
