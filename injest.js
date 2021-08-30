@@ -1,1 +1,3 @@
-import rawDataObject from ('.project-materials/stackoverfaux.json')
+const rawDataObject = require("./project-materials/stackoverfaux.json")
+
+console.log(rawDataObject)
