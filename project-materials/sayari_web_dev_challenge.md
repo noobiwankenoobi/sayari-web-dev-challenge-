@@ -12,3 +12,4 @@ The main requirements:
 * Give us enough code to make you look good. Solutions that tackle multiple components (e.g. database and API, or API and UI) tend to be more interesting.
 
 On submission, we will set up a time with you to perform a code review and discuss what the next steps would be if this were a production application. None of these questions have right answers, just be prepared to convince us of the merits of your specific decisions.
+
