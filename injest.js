@@ -1,6 +1,6 @@
 const rawDataObject = require("./project-materials/stackoverfaux.json")
 
-console.log(rawDataObject)
+// console.log(rawDataObject)
 
 /**
 /////////////////////////////
@@ -116,53 +116,78 @@ let questionComments = []
 let answers = []
 let answerComments = []
 
-// make a users MAP, key is the id, value is the username
+
 
 const ingestQuestion = (entireQuestion) => {
+  // logs for debug
   console.log("ingest question ran")
   console.log(entireQuestion)
   // extract question object, dump to array
-  // extract user object, call ingestUser
-  // extract comment array, call ingest comments  ingestQuestionComments(userId, commentsArray)
+  const {id, title, body, creation, score, user, comments, answers} = entireQuestion
+  let questionToSave = {
+    id: id,
+    title: title,
+    body: body,
+    creation: creation,
+    score: score
+  }
+  // Push to the questions array to later be added to db
+  questions.push(questionToSave)
+  // extract user object from question, call ingestUser
+  let userToIngest = user
+  ingestUser(userToIngest)
+  // extract questionComments array, call ingest comments ingestQuestionComments(questionId, commentsArray)
+  let commentsToIngest = comments
+  let questionId = id
+  ingestComments(questionId, commentsToIngest)
+  // extract answers array, call ingestAnswers passing the questionId and  answers array
+  let answersToIngest = answers
+  ingestAnswers(questionId, answersToIngest)
+
 }
 
-const ingestQuestions = (rawDataObject) => {
+const ingestQuestions = (rawData) => {
   // for question in questions {
     //inguestQuestion(question)
   //}
   // iterate over the array, call ingestQuestion on each
-  forEach((question) => ingestQuestion(question) )
+  rawData.forEach((question) => {
+    ingestQuestion(question)}
+    )
 }
 
 
 
-const ingestQuestionComments = (questionId, questionCommentsArray) => {
-  // iterate over the array, call ingestQuestionComment
-  //
-}
+// const ingestQuestionComments = (questionId, questionCommentsArray) => {
+//   // iterate over the array, call ingestQuestionComment
+//   //
+// }
 
-const ingestQuestionComment = (questionId, questionCommentObject) => {
-  // extract user object, call ingestUser
-  // create the object you want to store, save it to the array
-}
+// const ingestQuestionComment = (questionId, questionCommentObject) => {
+//   // extract user object, call ingestUser
+//   // create the object you want to store, save it to the array
+// }
 
 
-const ingestAnswer = (questionId, fullAnswer) = {
+// const ingestAnswer = (questionId, fullAnswer) = {
 
-}
+// }
 
-// INGEST USERS
+// // INGEST USERS
 
-const ingestUser = (user) => {
-  // whenever it's called, you check whether the user id is already in the map of user ids you've added, if it is then do nothing
-  // puts in the array, conditions it first if necessary
-}
+// make a users MAP, key is the id, value is the username
 
-// GET QUESTION COMMENTS
-const getQuestionComments = () => {
 
-}
+// const ingestUser = (user) => {
+//   // whenever it's called, you check whether the user id is already in the map of user ids you've added, if it is then do nothing
+//   // puts in the array, conditions it first if necessary
+// }
+
+// // GET QUESTION COMMENTS
+// const getQuestionComments = () => {
+
+// }
 
 // filter redundant users
 
-ingestQuestions()
+ingestQuestions(rawDataObject)
